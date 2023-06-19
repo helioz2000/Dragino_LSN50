@@ -428,6 +428,7 @@ void Device_status( device_t *device_data)
 
 void HAL_I2C_MspInit(I2C_HandleTypeDef *hi2c)
 {
+	UNUSED(hi2c);
   GPIO_InitTypeDef  GPIO_InitStruct;
   RCC_PeriphCLKInitTypeDef  RCC_PeriphCLKInitStruct;
   
@@ -468,6 +469,7 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef *hi2c)
   */
 void HAL_I2C_MspDeInit(I2C_HandleTypeDef *hi2c)
 {
+	UNUSED(hi2c);
   /*##-1- Reset peripherals ##################################################*/
   I2Cx_FORCE_RESET();
   I2Cx_RELEASE_RESET();
@@ -566,7 +568,7 @@ void  BSP_sensor_Init( void  )
 		 HAL_I2C_MspDeInit(&I2cHandle3);	 		
 		 GPIO_ULT_INPUT_Init();
 		 GPIO_ULT_OUTPUT_Init();		
-		 if(HAL_GPIO_ReadPin(ULT_Echo_PORT, ULT_Echo_PIN)==RESET)
+		 if(HAL_GPIO_ReadPin(ULT_Echo_PORT, ULT_Echo_PIN)==GPIO_PIN_RESET)
 	   {  
 			mode2_flag=2;	  
 			TIM3_Init();

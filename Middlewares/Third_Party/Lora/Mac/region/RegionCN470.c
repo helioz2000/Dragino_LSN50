@@ -99,6 +99,8 @@ static uint32_t GetBandwidth( uint32_t drIndex )
 
 static int8_t LimitTxPower( int8_t txPower, int8_t maxBandTxPower, int8_t datarate, uint16_t* channelsMask )
 {
+	UNUSED(channelsMask);
+	UNUSED(datarate);
     int8_t txPowerResult = txPower;
 
     // Limit tx power to the band max
@@ -406,6 +408,7 @@ bool RegionCN470Verify( VerifyParams_t* verify, PhyAttribute_t phyAttribute )
 
 void RegionCN470ApplyCFList( ApplyCFListParams_t* applyCFList )
 {
+	UNUSED(applyCFList);
     return;
 }
 
@@ -736,17 +739,20 @@ uint8_t RegionCN470RxParamSetupReq( RxParamSetupReqParams_t* rxParamSetupReq )
 
 uint8_t RegionCN470NewChannelReq( NewChannelReqParams_t* newChannelReq )
 {
+	UNUSED(newChannelReq);
     // Datarate and frequency KO
     return 0;
 }
 
 int8_t RegionCN470TxParamSetupReq( TxParamSetupReqParams_t* txParamSetupReq )
 {
+	UNUSED(txParamSetupReq);
     return -1;
 }
 
 uint8_t RegionCN470DlChannelReq( DlChannelReqParams_t* dlChannelReq )
 {
+	UNUSED(dlChannelReq);
     return 0;
 }
 
@@ -858,11 +864,13 @@ bool RegionCN470NextChannel( NextChanParams_t* nextChanParams, uint8_t* channel,
 
 LoRaMacStatus_t RegionCN470ChannelAdd( ChannelAddParams_t* channelAdd )
 {
+	UNUSED(channelAdd);
     return LORAMAC_STATUS_PARAMETER_INVALID;
 }
 
 bool RegionCN470ChannelsRemove( ChannelRemoveParams_t* channelRemove  )
 {
+	UNUSED(channelRemove);
     return LORAMAC_STATUS_PARAMETER_INVALID;
 }
 
@@ -880,6 +888,7 @@ void RegionCN470SetContinuousWave( ContinuousWaveParams_t* continuousWave )
 
 uint8_t RegionCN470ApplyDrOffset( uint8_t downlinkDwellTime, int8_t dr, int8_t drOffset )
 {
+	UNUSED(downlinkDwellTime);
     int8_t datarate = dr - drOffset;
 
     if( datarate < 0 )

@@ -103,8 +103,8 @@ void HW_GPIO_Init(GPIO_TypeDef *port, uint16_t GPIO_Pin,
  * @param [IN] irqHandler  points to the  function to execute
  * @retval none
  */
-void HW_GPIO_SetIrq(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint32_t prio,
-		GpioIrqHandler *irqHandler) {
+void HW_GPIO_SetIrq(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint32_t prio, GpioIrqHandler *irqHandler) {
+	UNUSED(GPIOx);
 	IRQn_Type IRQnb;
 
 	uint32_t BitPos = HW_GPIO_GetBitPos(GPIO_Pin);

@@ -7,8 +7,8 @@
  ******************************************************************************
  * @attention
  *
- * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics International N.V.
- * All rights reserved.</center></h2>
+ * Copyright (c) 2017 STMicroelectronics International N.V.
+ * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted, provided that the following conditions are met:
@@ -226,22 +226,26 @@ void set_at_receive(uint8_t AppPort, uint8_t* Buff, uint8_t BuffSize)
 
 ATEerror_t at_return_ok(const char *param)
 {
+	UNUSED(param);
   return AT_OK;
 }
 
 ATEerror_t at_return_error(const char *param)
 {
+	UNUSED(param);
   return AT_ERROR;
 }
 
 ATEerror_t at_reset(const char *param)
 {
+	UNUSED(param);
   NVIC_SystemReset();
   return AT_OK;
 }
 
 ATEerror_t at_DEBUG_run(const char *param)
 {
+	UNUSED(param);
   debug_flags=1;
 	PPRINTF("Enter Debug mode\r\n");			
 	debug_flags=1;
@@ -251,6 +255,7 @@ ATEerror_t at_DEBUG_run(const char *param)
 
 ATEerror_t at_FDR(const char *param)
 {
+	UNUSED(param);
 	EEPROM_erase_one_address(DATA_EEPROM_BASE);
 	EEPROM_erase_lora_config();
 	AT_PRINTF("OK\n\r");
@@ -261,6 +266,7 @@ ATEerror_t at_FDR(const char *param)
 
 ATEerror_t at_DevEUI_get(const char *param)
 {
+	UNUSED(param);
   print_8_02x(lora_config_deveui_get());
   return AT_OK;
 }
@@ -282,6 +288,7 @@ ATEerror_t at_DevEUI_set(const char *param)
 
 ATEerror_t at_AppEUI_get(const char *param)
 {
+	UNUSED(param);
   print_8_02x(lora_config_appeui_get());
   return AT_OK;
 }
@@ -317,12 +324,14 @@ ATEerror_t at_DevAddr_set(const char *param)
 
 ATEerror_t at_DevAddr_get(const char *param)
 {
+	UNUSED(param);
   lora_config_devaddr_get();
   return AT_OK;
 }
 
 ATEerror_t at_AppKey_get(const char *param)
 {
+	UNUSED(param);
   print_16_02x(lora_config_appkey_get());
   return AT_OK;
 }
@@ -344,6 +353,7 @@ ATEerror_t at_AppKey_set(const char *param)
 
 ATEerror_t at_NwkSKey_get(const char *param)
 {
+	UNUSED(param);
 	print_16_02x(lora_config_nwkskey_get());
   return AT_OK;
 }
@@ -365,6 +375,7 @@ ATEerror_t at_NwkSKey_set(const char *param)
 
 ATEerror_t at_AppSKey_get(const char *param)
 {
+	UNUSED(param);
 	print_16_02x(lora_config_appskey_get());
   return AT_OK;
 }
@@ -386,6 +397,7 @@ ATEerror_t at_AppSKey_set(const char *param)
 
 ATEerror_t at_ADR_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -421,6 +433,7 @@ ATEerror_t at_ADR_set(const char *param)
 
 ATEerror_t at_TransmitPower_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -451,7 +464,7 @@ ATEerror_t at_TransmitPower_set(const char *param)
 
 ATEerror_t at_DataRate_get(const char *param)
 {
-
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -555,6 +568,7 @@ ATEerror_t at_DutyCycle_set(const char *param)
 
 ATEerror_t at_DutyCycle_get(const char *param)
 {
+	UNUSED(param);
   if (lora_config_duty_cycle_get() == LORA_ENABLE)
     AT_PRINTF("1\r\n");
   else
@@ -566,6 +580,7 @@ ATEerror_t at_DutyCycle_get(const char *param)
 
 ATEerror_t at_PublicNetwork_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -600,6 +615,7 @@ ATEerror_t at_PublicNetwork_set(const char *param)
 
 ATEerror_t at_Rx2Frequency_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -633,6 +649,7 @@ ATEerror_t at_Rx2Frequency_set(const char *param)
 
 ATEerror_t at_Rx2DataRate_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -668,6 +685,7 @@ ATEerror_t at_Rx2DataRate_set(const char *param)
 
 ATEerror_t at_Rx1Delay_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -697,6 +715,7 @@ ATEerror_t at_Rx1Delay_set(const char *param)
 
 ATEerror_t at_Rx2Delay_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -726,6 +745,7 @@ ATEerror_t at_Rx2Delay_set(const char *param)
 
 ATEerror_t at_JoinAcceptDelay1_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -756,6 +776,7 @@ ATEerror_t at_JoinAcceptDelay1_set(const char *param)
 
 ATEerror_t at_JoinAcceptDelay2_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -786,6 +807,7 @@ ATEerror_t at_JoinAcceptDelay2_set(const char *param)
 
 ATEerror_t at_NetworkJoinMode_get(const char *param)
 {
+	UNUSED(param);
   print_d((lora_config_otaa_get() == LORA_ENABLE ? 1 : 0));
   return AT_OK;
 }
@@ -814,6 +836,7 @@ ATEerror_t at_NetworkJoinMode_set(const char *param)
 
 ATEerror_t at_NetworkID_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -846,6 +869,7 @@ ATEerror_t at_NetworkID_set(const char *param)
 
 ATEerror_t at_UplinkCounter_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -875,6 +899,7 @@ ATEerror_t at_UplinkCounter_set(const char *param)
 
 ATEerror_t at_DownlinkCounter_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -904,6 +929,7 @@ ATEerror_t at_DownlinkCounter_set(const char *param)
 
 ATEerror_t at_DeviceClass_get(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mib;
   LoRaMacStatus_t status;
 
@@ -941,6 +967,7 @@ ATEerror_t at_DeviceClass_set(const char *param)
 
 ATEerror_t at_Join(const char *param)
 {
+	UNUSED(param);
   LORA_Join();
 
   return AT_OK;
@@ -948,6 +975,7 @@ ATEerror_t at_Join(const char *param)
 
 ATEerror_t at_NetworkJoinStatus(const char *param)
 {
+	UNUSED(param);
   MibRequestConfirm_t mibReq;
   LoRaMacStatus_t status;
 
@@ -1084,6 +1112,7 @@ ATEerror_t at_Send(const char *param)
 
 ATEerror_t at_ReceiveBinary(const char *param)
 {
+	UNUSED(param);
   unsigned i;
   
   AT_PRINTF("%d:", ReceivedDataPort);
@@ -1099,6 +1128,7 @@ ATEerror_t at_ReceiveBinary(const char *param)
 
 ATEerror_t at_Receive(const char *param)
 {
+	UNUSED(param);
   AT_PRINTF("%d:", ReceivedDataPort);
   if (ReceivedDataSize)
   {
@@ -1139,13 +1169,14 @@ ATEerror_t at_DwellTime_set(const char *param)
 
 ATEerror_t at_DwellTime_get(const char *param)
 {
+	UNUSED(param);
   print_d(dwelltime);	
   return AT_OK;	
 }
 
 ATEerror_t at_RJTDC_set(const char *param)
 { 
-	uint16_t time=0;
+	uint32_t time=0;
 	if (tiny_sscanf(param, "%lu", &time) != 1)
   {
     return AT_PARAM_ERROR;
@@ -1166,6 +1197,7 @@ ATEerror_t at_RJTDC_set(const char *param)
 
 ATEerror_t at_RJTDC_get(const char *param)
 { 
+	UNUSED(param);
 	print_d(REJOIN_TX_DUTYCYCLE);
 	return AT_OK;
 }
@@ -1201,6 +1233,7 @@ ATEerror_t at_RPL_set(const char *param)
 
 ATEerror_t at_RPL_get(const char *param)
 { 
+	UNUSED(param);
 	print_d(response_level);
 	
 	return AT_OK;
@@ -1208,6 +1241,7 @@ ATEerror_t at_RPL_get(const char *param)
 
 ATEerror_t at_version_get(const char *param)
 {
+	UNUSED(param);
   AT_PRINTF(AT_VERSION_STRING" ");
 	region_printf();
 	
@@ -1253,30 +1287,35 @@ ATEerror_t at_ack_set(const char *param)
 
 ATEerror_t at_ack_get(const char *param)
 {
+	UNUSED(param);
   AT_PRINTF("%d,%d,%d\r\n", lora_config_reqack_get(),confirmed_uplink_retransmission_nbtrials,confirmed_uplink_counter_retransmission_increment_switch);
   return AT_OK;
 }
 
 ATEerror_t at_isack_get(const char *param)
 {
+	UNUSED(param);
   print_d(((lora_config_isack_get() == LORA_ENABLE) ? 1 : 0));
   return AT_OK;
 }
 
 ATEerror_t at_snr_get(const char *param)
 {
+	UNUSED(param);
   print_u(lora_config_snr_get());
   return AT_OK;
 }
 
 ATEerror_t at_rssi_get(const char *param)
 {
+	UNUSED(param);
   print_d(lora_config_rssi_get());
   return AT_OK;
 }
 
 ATEerror_t at_CFG_run(const char *param)
 {
+	UNUSED(param);
 	MibRequestConfirm_t mibReq;
   LoRaMacStatus_t mac_status;
 	
@@ -1347,6 +1386,7 @@ ATEerror_t at_TDC_set(const char *param)
 
 ATEerror_t at_TDC_get(const char *param)
 { 
+	UNUSED(param);
 	print_u(APP_TX_DUTYCYCLE);
 	return AT_OK;
 }
@@ -1367,6 +1407,7 @@ ATEerror_t at_application_port_set(const char *param)
 
 ATEerror_t at_application_port_get(const char *param)
 {
+	UNUSED(param);
 	print_d(lora_config_application_port_get());
 	return AT_OK;
 }
@@ -1420,6 +1461,7 @@ ATEerror_t at_CHE_set(const char *param)
 
 ATEerror_t at_CHE_get(const char *param)
 { 
+	UNUSED(param);
   print_d(customize_set8channel_get());
 	uint8_t i;
 	double fre1;
@@ -1482,12 +1524,14 @@ ATEerror_t at_CHS_set(const char *param)
 
 ATEerror_t at_CHS_get(const char *param)
 { 
+	UNUSED(param);
 	print_u(customize_freq1_get());
 	return AT_OK;
 }
 
 ATEerror_t at_symbtimeout1LSB_get(const char *param)
 { 
+	UNUSED(param);
    print_d(symbtime1_value);
 	 return AT_OK;
 }
@@ -1514,6 +1558,7 @@ ATEerror_t at_symbtimeout1LSB_set(const char *param)
 
 ATEerror_t at_symbtimeout2LSB_get(const char *param)
 { 
+	UNUSED(param);
    print_d(symbtime2_value);
 	 return AT_OK;
 }
@@ -1560,6 +1605,7 @@ ATEerror_t at_decrypt_set(const char *param)
 
 ATEerror_t at_decrypt_get(const char *param)
 {
+	UNUSED(param);
 	PPRINTF("%d\r\n",decrypt_flag);
 	return AT_OK;	
 }
@@ -1587,6 +1633,7 @@ ATEerror_t at_MOD_set(const char *param)
 
 ATEerror_t at_MOD_get(const char *param)
 { 
+	UNUSED(param);
 	print_d(mode);
 	return AT_OK;
 }
@@ -1616,6 +1663,7 @@ ATEerror_t at_INTMOD1_set(const char *param)
 
 ATEerror_t at_INTMOD1_get(const char *param)
 { 
+	UNUSED(param);
 	print_d(inmode);
 	return AT_OK;
 }
@@ -1644,6 +1692,7 @@ ATEerror_t at_INTMOD2_set(const char *param)
 
 ATEerror_t at_INTMOD2_get(const char *param)
 {
+	UNUSED(param);
 	print_d(inmode2);
 	return AT_OK;	
 }
@@ -1672,12 +1721,14 @@ ATEerror_t at_INTMOD3_set(const char *param)
 
 ATEerror_t at_INTMOD3_get(const char *param)
 {
+	UNUSED(param);
 	print_d(inmode3);
 	return AT_OK;	
 }
 
 ATEerror_t at_weightreset(const char *param)
 {
+	UNUSED(param);
 	weightreset();
 	
 	return AT_OK;	
@@ -1706,6 +1757,7 @@ ATEerror_t at_weight_GapValue_set(const char *param)
 
 ATEerror_t at_weight_GapValue_get(const char *param)
 {
+	UNUSED(param);
 	PPRINTF("%0.1f\r\n",GapValue);
 	
   return AT_OK;		
@@ -1726,6 +1778,7 @@ ATEerror_t at_5Vtime_set(const char *param)
 
 ATEerror_t at_5Vtime_get(const char *param)
 {
+	UNUSED(param);
 	print_d(power_time);
 	return AT_OK;
 }
@@ -1784,7 +1837,7 @@ ATEerror_t at_getsensorvaule_set(const char *param)
 ATEerror_t at_downlink_detect_set(const char *param)
 {
 	uint8_t status;
-	uint16_t timeout1=0,timeout2=0;
+	uint32_t timeout1=0,timeout2=0;
 	if (tiny_sscanf(param, "%d,%lu,%lu", &status,&timeout1,&timeout2) != 3)
   {
     return AT_PARAM_ERROR;
@@ -1815,6 +1868,7 @@ ATEerror_t at_downlink_detect_set(const char *param)
 
 ATEerror_t at_downlink_detect_get(const char *param)
 {
+	UNUSED(param);
 	AT_PRINTF("%d,%d,%d\r\n", downlink_detect_switch,unconfirmed_uplink_change_to_confirmed_uplink_timeout,downlink_detect_timeout);
 	return AT_OK;	
 }
@@ -1840,6 +1894,7 @@ ATEerror_t at_setmaxnbtrans_set(const char *param)
 
 ATEerror_t at_setmaxnbtrans_get(const char *param)
 {
+	UNUSED(param);
   AT_PRINTF("%d,%d\r\n", LinkADR_NbTrans_retransmission_nbtrials,LinkADR_NbTrans_uplink_counter_retransmission_increment_switch);
   return AT_OK;	
 }
@@ -1866,6 +1921,7 @@ ATEerror_t at_disdownlinkcheck_set(const char *param)
 
 ATEerror_t at_disdownlinkcheck_get(const char *param)
 {
+	UNUSED(param);
 	PPRINTF("%d\r\n",down_check);
 	return AT_OK;			
 }
@@ -1892,6 +1948,7 @@ ATEerror_t at_dismac_answer_set(const char *param)
 
 ATEerror_t at_dismac_answer_get(const char *param)
 {
+	UNUSED(param);
 	PPRINTF("%d\r\n",mac_response_flag);
 	return AT_OK;		
 }
@@ -2076,15 +2133,15 @@ static void print_u(unsigned int value)
 
 static uint8_t changeform(const char *from,uint8_t *pt,uint8_t number)
 {
-  char *p[16];
-  char temp[2]="";
+	char *p[16];
+	char temp[2]="";
 	uint8_t k=0;
 	uint8_t l=0;
 	
 	if(strlen(from)==number*2)
 	{
-	  for(int i=0;i<strlen(from);i++)
-	  {
+		for(unsigned int i=0;i<strlen(from);i++)
+		{
 			temp[l++]=from[i];
 			if(l%2==0)
 			{
@@ -2097,7 +2154,7 @@ static uint8_t changeform(const char *from,uint8_t *pt,uint8_t number)
 	}
 	else
 	{
-		if(strlen(from)!=(number*3-1))
+		if(strlen(from)!=((unsigned int)number*3-1))
 		{
 			PPRINTF("AT_PARAM_ERROR(Incorrect Length)\r\n");
 		}			

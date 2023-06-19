@@ -98,6 +98,8 @@ static uint32_t GetBandwidth( uint32_t drIndex )
 
 static int8_t LimitTxPower( int8_t txPower, int8_t maxBandTxPower, int8_t datarate, uint16_t* channelsMask )
 {
+	UNUSED(channelsMask);
+	UNUSED(datarate);
     int8_t txPowerResult = txPower;
 
     // Limit tx power to the band max
@@ -940,12 +942,14 @@ uint8_t RegionAS923NewChannelReq( NewChannelReqParams_t* newChannelReq )
 
 int8_t RegionAS923TxParamSetupReq( TxParamSetupReqParams_t* txParamSetupReq )
 {
+	UNUSED(txParamSetupReq);
     // Accept the request
     return 0;
 }
 
 uint8_t RegionAS923DlChannelReq( DlChannelReqParams_t* dlChannelReq )
 {
+	UNUSED(dlChannelReq);
     uint8_t status = 0x03;
 
     // Verify if the frequency is supported
@@ -971,6 +975,7 @@ uint8_t RegionAS923DlChannelReq( DlChannelReqParams_t* dlChannelReq )
 
 int8_t RegionAS923AlternateDr( AlternateDrParams_t* alternateDr )
 {
+	UNUSED(alternateDr);
     // Only AS923_DWELL_LIMIT_DATARATE is supported
     return AS923_DWELL_LIMIT_DATARATE;
 }

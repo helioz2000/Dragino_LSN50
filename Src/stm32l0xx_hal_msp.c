@@ -68,6 +68,7 @@
  * @retval HAL status
  */
 HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority) {
+	UNUSED(TickPriority);
 	/* Return function status */
 	return HAL_OK;
 }
@@ -122,6 +123,7 @@ void HAL_MspInit(void) {
  * @retval None
  */
 void HAL_RTC_MspInit(RTC_HandleTypeDef *hrtc) {
+	UNUSED(hrtc);
 	RCC_OscInitTypeDef RCC_OscInitStruct;
 	RCC_PeriphCLKInitTypeDef PeriphClkInitStruct;
 
@@ -158,6 +160,7 @@ void HAL_RTC_MspInit(RTC_HandleTypeDef *hrtc) {
  * @retval None
  */
 void HAL_RTC_MspDeInit(RTC_HandleTypeDef *hrtc) {
+	UNUSED(hrtc);
 	/* Reset peripherals */
 	__HAL_RCC_RTC_DISABLE();
 }
@@ -168,6 +171,7 @@ void HAL_RTC_MspDeInit(RTC_HandleTypeDef *hrtc) {
  * @retval None
  */
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
+	UNUSED(hrtc);
 	TimerIrqHandler();
 }
 
@@ -189,6 +193,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
  * @retval None
  */
 void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim) {
+	UNUSED(htim);
 	/* TIMx Peripheral clock enable */
 	__HAL_RCC_TIM21_CLK_ENABLE();
 

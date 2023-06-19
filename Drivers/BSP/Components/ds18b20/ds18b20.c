@@ -7,8 +7,8 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics International N.V. 
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics International N.V.
+  * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
   * modification, are permitted, provided that the following conditions are met:
@@ -264,7 +264,7 @@ uint8_t DS18B20_Presence(uint8_t num)
 
 uint8_t DS18B20_ReadBit(uint8_t num)
 {
-   uint8_t dat;
+   uint8_t dat = 0;
 	
 	 if(num==1)
 	 {               
@@ -274,7 +274,7 @@ uint8_t DS18B20_ReadBit(uint8_t num)
      DS18B20_delay(10);
      DS18B20_Mode_IPU(1);
         
-     if( DOUT1_READ()==SET)
+     if( DOUT1_READ()==GPIO_PIN_SET)
         dat = 1;
      else
         dat = 0;
@@ -287,7 +287,7 @@ uint8_t DS18B20_ReadBit(uint8_t num)
       DS18B20_delay(10);
       DS18B20_Mode_IPU(2);
         
-      if( DOUT2_READ()==SET)
+      if( DOUT2_READ()==GPIO_PIN_SET)
           dat = 1;
       else
           dat = 0;
@@ -300,7 +300,7 @@ uint8_t DS18B20_ReadBit(uint8_t num)
       DS18B20_delay(10);
       DS18B20_Mode_IPU(3);
         
-      if( DOUT3_READ()==SET)
+      if( DOUT3_READ()==GPIO_PIN_SET)
           dat = 1;
       else
           dat = 0;

@@ -113,6 +113,8 @@ static uint32_t GetBandwidth( uint32_t drIndex )
 
 static int8_t LimitTxPower( int8_t txPower, int8_t maxBandTxPower, int8_t datarate, uint16_t* channelsMask )
 {
+	UNUSED(channelsMask);
+	UNUSED(datarate);
     int8_t txPowerResult = txPower;
 
     // Limit tx power to the band max
@@ -913,6 +915,7 @@ uint8_t RegionMA869NewChannelReq( NewChannelReqParams_t* newChannelReq )
 
 int8_t RegionMA869TxParamSetupReq( TxParamSetupReqParams_t* txParamSetupReq )
 {
+	UNUSED(txParamSetupReq);
     return -1;
 }
 
@@ -1152,6 +1155,7 @@ void RegionMA869SetContinuousWave( ContinuousWaveParams_t* continuousWave )
 
 uint8_t RegionMA869ApplyDrOffset( uint8_t downlinkDwellTime, int8_t dr, int8_t drOffset )
 {
+	UNUSED(downlinkDwellTime);
     int8_t datarate = dr - drOffset;
 
     if( datarate < 0 )

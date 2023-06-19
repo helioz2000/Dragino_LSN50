@@ -1125,17 +1125,20 @@ uint8_t RegionUS915RxParamSetupReq( RxParamSetupReqParams_t* rxParamSetupReq )
 
 uint8_t RegionUS915NewChannelReq( NewChannelReqParams_t* newChannelReq )
 {
+	UNUSED(newChannelReq);
     // Datarate and frequency KO
     return 0;
 }
 
 int8_t RegionUS915TxParamSetupReq( TxParamSetupReqParams_t* txParamSetupReq )
 {
+	UNUSED(txParamSetupReq);
     return -1;
 }
 
 uint8_t RegionUS915DlChannelReq( DlChannelReqParams_t* dlChannelReq )
 {
+	UNUSED(dlChannelReq);
     return 0;
 }
 
@@ -1282,11 +1285,13 @@ bool RegionUS915NextChannel( NextChanParams_t* nextChanParams, uint8_t* channel,
 
 LoRaMacStatus_t RegionUS915ChannelAdd( ChannelAddParams_t* channelAdd )
 {
+	UNUSED(channelAdd);
     return LORAMAC_STATUS_PARAMETER_INVALID;
 }
 
 bool RegionUS915ChannelsRemove( ChannelRemoveParams_t* channelRemove  )
 {
+	UNUSED(channelRemove);
     return LORAMAC_STATUS_PARAMETER_INVALID;
 }
 
@@ -1304,6 +1309,7 @@ void RegionUS915SetContinuousWave( ContinuousWaveParams_t* continuousWave )
 
 uint8_t RegionUS915ApplyDrOffset( uint8_t downlinkDwellTime, int8_t dr, int8_t drOffset )
 {
+	UNUSED(downlinkDwellTime);
     int8_t datarate = DatarateOffsetsUS915[dr][drOffset];
 
     if( datarate < 0 )

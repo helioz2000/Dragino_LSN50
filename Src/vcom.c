@@ -110,6 +110,7 @@ void vcom_Trace(  uint8_t *p_data, uint16_t size )
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
+	UNUSED(UartHandle);
   /* buffer transmission complete*/
    if (NULL != TxCpltCallback)
    {
@@ -370,7 +371,7 @@ void uart1_IoDeInit(void)
 
 void at_tfmini_data_receive(uint8_t rxdatatemp[],uint16_t delayvalue)
 {
-	uint8_t responsetemp[1];	
+	uint8_t responsetemp[1] = {0};
 	uint8_t begin=0,datanumber=0;
 	uint8_t txenoutput[5] ={0x5A,0x05,0x07,0x01,0x67};		  
 	

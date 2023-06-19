@@ -327,7 +327,7 @@ uint8_t HW_GetBatteryLevel( void )
 {
   uint8_t batteryLevel = 0;
   uint16_t measuredLevel = 0;
-  uint32_t batteryLevelmV;
+  uint32_t batteryLevelmV = 0;
 
   measuredLevel = HW_AdcReadChannel( ADC_CHANNEL_VREFINT ); 
 

@@ -879,7 +879,7 @@ static void parse_cmd(const char *cmd)
 	uint8_t store_config_status=1;
   ATEerror_t status = AT_OK;
   const struct ATCommand_s *Current_ATCommand;
-  int i;
+  unsigned int i;
 
   if ((cmd[0] != 'A') || (cmd[1] != 'T'))
   {
@@ -983,8 +983,8 @@ static void parse_cmd(const char *cmd)
 
 uint8_t printf_all_config(void)
 {
-	char *cmd;
-	for (int j = 0; j< (sizeof(ATCommand) / sizeof(struct ATCommand_s)); j++)
+	char *cmd = "-";
+	for (unsigned int j = 0; j< (sizeof(ATCommand) / sizeof(struct ATCommand_s)); j++)
 	{
 		if((ATCommand[j].get)!=at_return_error)
 		{

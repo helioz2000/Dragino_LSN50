@@ -21,7 +21,7 @@ Maintainer: Miguel Luis and Gregory Cristian
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
+  * COPYRIGHT(c) 2017 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -135,6 +135,7 @@ uint32_t SX1276GetWakeTime( void )
 
 void SX1276SetXO( uint8_t state )
 {
+	UNUSED(state);
 }
 void SX1276IoInit( void )
 {
@@ -312,6 +313,7 @@ void SX1276SetAntSw( uint8_t opMode )
 
 bool SX1276CheckRfFrequency( uint32_t frequency )
 {
+	UNUSED(frequency);
     // Implement check. Currently all frequencies are supported
     return true;
 }

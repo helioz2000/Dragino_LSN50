@@ -7,8 +7,8 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics International N.V. 
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics International N.V.
+  * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
   * modification, are permitted, provided that the following conditions are met:
@@ -138,7 +138,7 @@ uint16_t ULT_test(void)
 	uint16_t temp_ult[6],distance;
 	uint8_t  ult_flags=0;
 	
-	if((HAL_GPIO_ReadPin(ULT_Echo_PORT, ULT_Echo_PIN)==RESET)&&(power_time!=0))
+	if((HAL_GPIO_ReadPin(ULT_Echo_PORT, ULT_Echo_PIN)==GPIO_PIN_RESET)&&(power_time!=0))
 	{
 		 ult_flags=0;
 	}

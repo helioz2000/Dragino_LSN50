@@ -12,7 +12,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * COPYRIGHT(c) 2016 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -735,6 +735,7 @@ void LCD_Delay(uint32_t Delay)
   */
 static void ADCx_MspInit(ADC_HandleTypeDef *hadc)
 {
+	UNUSED(hadc);
   GPIO_InitTypeDef  gpioinitstruct = {0};
   
   /*** Configure the GPIOs ***/  
@@ -760,6 +761,7 @@ static void ADCx_MspInit(ADC_HandleTypeDef *hadc)
   */
 static void ADCx_MspDeInit(ADC_HandleTypeDef *hadc)
 {
+	UNUSED(hadc);
   GPIO_InitTypeDef  gpioinitstruct;
 
   /*** DeInit the ADC peripheral ***/ 

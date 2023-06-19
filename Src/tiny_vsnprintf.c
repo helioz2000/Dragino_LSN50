@@ -683,6 +683,8 @@ repeat:
 
 		case 'X':
 			flags |= UPPERCASE;
+			base = 16;
+			break;
 
 		case 'x':
 			base = 16;

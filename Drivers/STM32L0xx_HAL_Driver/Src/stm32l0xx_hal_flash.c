@@ -140,7 +140,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * COPYRIGHT(c) 2016 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -248,6 +248,7 @@ extern void    FLASH_PageErase(uint32_t PageAddress);
   */
 HAL_StatusTypeDef HAL_FLASH_Program(uint32_t TypeProgram, uint32_t Address, uint32_t Data)
 {
+	UNUSED(TypeProgram);
   HAL_StatusTypeDef status = HAL_ERROR;
   
   /* Process Locked */

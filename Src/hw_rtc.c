@@ -319,8 +319,7 @@ TimerTime_t HW_RTC_Tick2ms(uint32_t tick) {
  */
 void HW_RTC_SetAlarm(uint32_t timeout) {
 	/* we don't go in Low Power mode for timeout below MIN_ALARM_DELAY */
-	if ((MIN_ALARM_DELAY + McuWakeUpTimeCal)
-			< ((timeout - HW_RTC_GetTimerElapsedTime()))) {
+	if (((uint32_t)MIN_ALARM_DELAY + McuWakeUpTimeCal) < ((timeout - (uint32_t)HW_RTC_GetTimerElapsedTime()))) {
 		LPM_SetStopMode(LPM_RTC_Id, LPM_Enable);
 	} else {
 		LPM_SetStopMode(LPM_RTC_Id, LPM_Disable);
